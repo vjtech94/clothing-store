@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+build/
+dist/
+target/
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Mobile
+mobile/android/app/build/
+mobile/ios/build/
+mobile/ios/Pods/
+*.xcworkspace
+*.pbxuser
+*.perspectivev3
+xcuserdata/
+
+# Docker
+postgres_data/
+
+# Java
+*.class
+*.log
+hs_err_pid*
+
+# Temporary
+tmp/
+temp/
