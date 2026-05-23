@@ -86,6 +86,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=admin
       - SPRING_DATASOURCE_PASSWORD=dev_password_123
       - SPRING_DATA_REDIS_HOST=redis
+      - CLOUDINARY_URL=${CLOUDINARY_URL:-}
     depends_on:
       postgres:
         condition: service_healthy

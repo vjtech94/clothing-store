@@ -102,6 +102,7 @@ services:
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
       SPRING_DATA_REDIS_HOST: redis
+      CLOUDINARY_URL: ${CLOUDINARY_URL}
     deploy:
       resources:
         limits:
