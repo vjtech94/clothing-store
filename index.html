@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nivedha MakeOver | Nail Salon & Nail Artist</title>
+  <meta name="description" content="Elegant nail collections by Nivedha MakeOver — Nail Salon & Nail Artist. Browse handcrafted nail looks and order directly via WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fffafc;
+      --surface:#ffffff;
+      --ink:#2f2027;
+      --muted:#816f78;
+      --rose:#c98199;
+      --rose-deep:#8f4c63;
+      --blush:#f7e6ec;
+      --gold:#b38a63;
+      --line:#eadbe1;
+      --shadow:0 18px 50px rgba(86,43,58,.12);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Montserrat",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(201,129,153,.15), transparent 32%),
+        linear-gradient(180deg,#fffafd 0%,#fff 45%,#fff8fa 100%);
+    }
+    img{display:block;width:100%}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+    .container{width:min(1180px,calc(100% - 32px));margin:auto}
+
+    header{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter:blur(16px);
+      background:rgba(255,250,252,.87);
+      border-bottom:1px solid rgba(234,219,225,.8);
+    }
+    .nav{
+      min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.04em
+    }
+    .brand-mark{
+      width:42px;height:42px;border-radius:50%;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--rose-deep),var(--rose));
+      color:#fff;box-shadow:0 10px 24px rgba(143,76,99,.25);
+      font-family:"Cormorant Garamond",serif;font-size:24px
+    }
+    .brand strong{font-family:"Cormorant Garamond",serif;font-size:27px}
+    nav{display:flex;gap:26px;align-items:center}
+    nav a{font-size:14px;font-weight:600;color:#5d4a53}
+    nav a:hover{color:var(--rose-deep)}
+    .nav-cta{
+      padding:12px 18px;border-radius:999px;background:var(--ink);color:#fff
+    }
+    .menu-btn{display:none;border:0;background:transparent;font-size:26px;cursor:pointer}
+
+    .hero{
+      position:relative;
+      min-height:720px;
+      padding:96px 0 72px;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg, rgba(30,15,22,.80) 0%, rgba(30,15,22,.58) 45%, rgba(30,15,22,.20) 100%),
+        url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=2000&q=90') center/cover no-repeat;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0;
+      height:180px;
+      background:linear-gradient(transparent,rgba(255,250,252,.95));
+      pointer-events:none;
+    }
+    .hero-grid{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:54px;
+      align-items:center
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:8px 13px;border-radius:999px;background:var(--blush);
+      color:var(--rose-deep);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em
+    }
+    h1,h2,h3{font-family:"Cormorant Garamond",serif;margin:0}
+    h1{
+      margin-top:18px;font-size:clamp(54px,7vw,92px);
+      line-height:.92;letter-spacing:-.045em
+    }
+    h1 span{color:var(--rose-deep);font-style:italic}
+    .hero p{
+      margin:24px 0 30px;max-width:620px;
+      color:#f5e9ed;font-size:17px;line-height:1.8
+    }
+    .hero h1{color:#fff;text-shadow:0 8px 30px rgba(0,0,0,.25)}
+    .hero h1 span{color:#ffdce7}
+    .hero .eyebrow{
+      background:rgba(255,255,255,.15);
+      border:1px solid rgba(255,255,255,.28);
+      color:#fff;
+      backdrop-filter:blur(10px)
+    }
+    .actions{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:50px;padding:0 22px;border-radius:999px;font-weight:700;font-size:14px;
+      transition:.25s ease
+    }
+    .btn-primary{background:var(--rose-deep);color:white;box-shadow:0 12px 26px rgba(143,76,99,.25)}
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-light{background:#fff;border:1px solid var(--line)}
+    .hero-note{margin-top:22px;font-size:12px;color:#8c7982}
+
+    .hero-art{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:520px;
+    }
+    .shop-sign{
+      width:min(100%,460px);
+      padding:44px 34px;
+      border-radius:34px;
+      background:rgba(255,255,255,.13);
+      border:1px solid rgba(255,255,255,.30);
+      backdrop-filter:blur(16px);
+      text-align:center;
+      color:#fff;
+      box-shadow:0 24px 70px rgba(0,0,0,.24);
+    }
+    .shop-sign .monogram{
+      width:88px;height:88px;border-radius:50%;
+      display:grid;place-items:center;
+      margin:0 auto 20px;
+      border:1px solid rgba(255,255,255,.6);
+      font-family:"Cormorant Garamond",serif;
+      font-size:46px;
+      background:rgba(255,255,255,.12)
+    }
+    .shop-sign h2{font-size:54px;line-height:.95}
+    .shop-sign p{margin:14px auto 0;color:#f4e8ec;font-size:14px}
+    .shop-sign .salon-label{
+      margin-top:20px;
+      display:inline-flex;
+      gap:8px;
+      padding:9px 13px;
+      border-radius:999px;
+      background:rgba(0,0,0,.20);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.13em;
+      text-transform:uppercase
+    }
+
+    .trust-strip{
+      margin-top:28px;padding:18px 22px;border:1px solid var(--line);
+      background:rgba(255,255,255,.75);border-radius:18px;
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:center
+    }
+    .trust-strip b{display:block;font-size:15px}
+    .trust-strip span{font-size:12px;color:var(--muted)}
+
+    section{padding:82px 0}
+    .section-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:30px}
+    .section-head h2{font-size:clamp(42px,5vw,62px)}
+    .section-head p{max-width:530px;color:var(--muted);line-height:1.75;margin:0}
+
+    .products{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:22px
+    }
+    .card{
+      background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+      overflow:hidden;box-shadow:0 10px 30px rgba(86,43,58,.06);
+      transition:.25s ease
+    }
+    .card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+    .card-media{aspect-ratio:4/5;overflow:hidden;position:relative;background:#f8edf1}
+    .card-media img{height:100%;object-fit:cover;transition:.45s ease}
+    .card:hover img{transform:scale(1.05)}
+    .tag{
+      position:absolute;left:14px;top:14px;padding:7px 10px;border-radius:999px;
+      background:rgba(255,255,255,.9);font-size:11px;font-weight:700;color:var(--rose-deep)
+    }
+    .card-body{padding:18px}
+    .card h3{font-size:27px}
+    .meta{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:8px 0 16px}
+    .price{font-weight:700;color:var(--rose-deep)}
+    .code{font-size:11px;color:var(--muted)}
+    .order-btn{
+      width:100%;border:0;cursor:pointer;background:#1f9d55;color:#fff;
+      border-radius:14px;min-height:46px;font-weight:700
+    }
+
+
+    .carousel-wrap{
+      position:relative;
+      overflow:hidden;
+      border-radius:32px;
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .carousel-track{
+      display:flex;
+      transition:transform .55s cubic-bezier(.2,.8,.2,1);
+    }
+    .carousel-slide{
+      position:relative;
+      min-width:100%;
+      height:520px;
+      overflow:hidden;
+    }
+    .carousel-slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .carousel-overlay{
+      position:absolute;
+      inset:auto 0 0;
+      padding:70px 34px 30px;
+      color:#fff;
+      background:linear-gradient(transparent,rgba(25,12,18,.78));
+    }
+    .carousel-overlay h3{font-size:42px}
+    .carousel-overlay p{margin:6px 0 0;color:#f5e9ed}
+    .carousel-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:46px;height:46px;border-radius:50%;
+      border:1px solid rgba(255,255,255,.5);
+      background:rgba(255,255,255,.85);
+      color:var(--ink);
+      font-size:24px;
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+      z-index:3;
+    }
+    .carousel-prev{left:18px}
+    .carousel-next{right:18px}
+    .carousel-dots{
+      position:absolute;
+      right:24px;
+      bottom:24px;
+      display:flex;
+      gap:8px;
+      z-index:4;
+    }
+    .carousel-dot{
+      width:10px;height:10px;border-radius:50%;
+      border:0;
+      padding:0;
+      background:rgba(255,255,255,.45);
+      cursor:pointer;
+    }
+    .carousel-dot.active{background:#fff}
+
+    .about{
+      display:grid;grid-template-columns:.9fr 1.1fr;gap:38px;align-items:center
+    }
+    .about-image{border-radius:32px;overflow:hidden;box-shadow:var(--shadow);min-height:500px}
+    .about-image img{height:100%;object-fit:cover}
+    .about-copy{padding:16px}
+    .about-copy h2{font-size:clamp(42px,5vw,62px)}
+    .about-copy p{color:var(--muted);line-height:1.85}
+    .features{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px
+    }
+    .feature{padding:16px;border-radius:18px;background:var(--blush)}
+    .feature b{display:block;margin-bottom:6px}
+    .feature span{font-size:13px;color:var(--muted)}
+
+    .cta{
+      background:linear-gradient(135deg,#38252d,#8f4c63);
+      color:#fff;border-radius:34px;padding:48px;
+      display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center
+    }
+    .cta h2{font-size:clamp(38px,5vw,58px)}
+    .cta p{margin:10px 0 0;color:#f3dfe6;line-height:1.7}
+    .cta .btn{background:white;color:var(--ink)}
+
+    footer{padding:34px 0 44px;color:#7f6e76}
+    .footer-grid{display:flex;justify-content:space-between;gap:24px;align-items:center}
+    .socials{display:flex;gap:18px;font-size:13px;font-weight:600}
+
+    @media (max-width: 980px){
+      .hero-grid,.about{grid-template-columns:1fr}
+      .hero-art{min-height:520px}
+      .products{grid-template-columns:repeat(2,1fr)}
+      .section-head{align-items:start;flex-direction:column}
+      .cta{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 720px){
+      .container{width:min(100% - 22px,1180px)}
+      nav{
+        display:none;position:absolute;left:12px;right:12px;top:70px;
+        flex-direction:column;align-items:stretch;padding:16px;background:#fff;
+        border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)
+      }
+      nav.open{display:flex}
+      nav a{padding:10px 8px}
+      .menu-btn{display:block}
+      .hero{min-height:auto;padding:70px 0 82px;background-position:center}
+      .hero-grid{gap:34px}
+      .hero-art{min-height:auto}
+      .shop-sign{padding:30px 20px}
+      .shop-sign h2{font-size:44px}
+      .carousel-slide{height:390px}
+      .carousel-overlay{padding:60px 22px 22px}
+      .carousel-overlay h3{font-size:34px}
+      .carousel-btn{width:40px;height:40px}
+      .carousel-prev{left:10px}
+      .carousel-next{right:10px}
+      .products{grid-template-columns:repeat(2,1fr);gap:12px}
+      .card h3{font-size:22px}
+      .card-body{padding:14px}
+      .trust-strip{grid-template-columns:1fr}
+      .about-image{min-height:390px}
+      .features{grid-template-columns:1fr}
+      .cta{padding:30px 22px}
+      .footer-grid{flex-direction:column;align-items:flex-start}
+    }
+
+    @media (max-width: 460px){
+      .products{grid-template-columns:1fr}
+      h1{font-size:56px}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="brand-mark">N</span>
+        <strong>Nivedha MakeOver</strong>
+      </a>
+
+      <button class="menu-btn" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Open menu">☰</button>
+
+      <nav>
+        <a href="#collection">Collection</a>
+        <a href="#artist">Artist</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="https://wa.me/919876543210?text=Hi%20Velvet%20Tips,%20I%20would%20like%20to%20know%20more%20about%20your%20nail%20collections." target="_blank">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Nail Salon • Nail Artist</span>
+          <h1>Wear a little <span>art</span> on every fingertip.</h1>
+          <p>
+            Elegant nail attachments curated by a makeup artist for bridal looks, parties, shoots and everyday glam.
+            Choose your favourite style and place your enquiry directly through WhatsApp.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#collection">Explore Nail Collection</a>
+            <a class="btn btn-light" href="https://wa.me/919876543210?text=Hi%20Velvet%20Tips,%20I%20need%20help%20choosing%20a%20nail%20design." target="_blank">Chat on WhatsApp</a>
+          </div>
+
+          <div class="trust-strip">
+            <div><b>Premium Looks</b><span>Curated nail styles</span></div>
+            <div><b>Easy Enquiry</b><span>Order through WhatsApp</span></div>
+            <div><b>Mobile Friendly</b><span>Designed for every screen</span></div>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="shop-sign">
+            <div class="monogram">N</div>
+            <h2>Nivedha<br>MakeOver</h2>
+            <p>Where every nail becomes a tiny piece of art.</p>
+            <div class="salon-label">Nail Salon • Nail Artist</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="highlights">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Nivedha MakeOver Highlights</span>
+            <h2>Beauty in every detail.</h2>
+          </div>
+          <p>A glimpse of the salon mood and our nail artistry. Swipe on mobile or use the arrows to explore.</p>
+        </div>
+
+        <div class="carousel-wrap" aria-label="Nivedha MakeOver featured gallery">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1600&q=88" alt="Elegant premium nail art">
+              <div class="carousel-overlay">
+                <h3>Signature Nail Art</h3>
+                <p>Elegant finishes designed for every occasion.</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=1600&q=88" alt="Pink glossy manicure">
+              <div class="carousel-overlay">
+                <h3>Modern Glam</h3>
+                <p>Fresh, feminine and made to stand out.</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=1600&q=88" alt="Soft bridal nail styling">
+              <div class="carousel-overlay">
+                <h3>Bridal Collection</h3>
+                <p>Beautiful nail looks that complete your makeover.</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-btn carousel-prev" type="button" aria-label="Previous slide">‹</button>
+          <button class="carousel-btn carousel-next" type="button" aria-label="Next slide">›</button>
+
+          <div class="carousel-dots" aria-label="Carousel navigation">
+            <button class="carousel-dot active" type="button" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" type="button" aria-label="Go to slide 2"></button>
+            <button class="carousel-dot" type="button" aria-label="Go to slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="collection">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Signature Collection</span>
+            <h2>Choose your mood.</h2>
+          </div>
+          <p>Every design below can be ordered through WhatsApp. The product name and code will be automatically added to the message.</p>
+        </div>
+
+        <div class="products">
+          <article class="card">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=900&q=85" alt="Rose nude nails">
+              <span class="tag">Best Seller</span>
+            </div>
+            <div class="card-body">
+              <h3>Rose Nude</h3>
+              <div class="meta"><span class="price">₹499</span><span class="code">VT-001</span></div>
+              <button class="order-btn" onclick="orderWhatsApp('Rose Nude','VT-001','₹499')">Order on WhatsApp</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85" alt="Glossy pink nails">
+              <span class="tag">Party</span>
+            </div>
+            <div class="card-body">
+              <h3>Pink Gloss</h3>
+              <div class="meta"><span class="price">₹549</span><span class="code">VT-002</span></div>
+              <button class="order-btn" onclick="orderWhatsApp('Pink Gloss','VT-002','₹549')">Order on WhatsApp</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1612887390768-fb6d7b3c4c49?auto=format&fit=crop&w=900&q=85" alt="Luxury nail styling">
+              <span class="tag">Premium</span>
+            </div>
+            <div class="card-body">
+              <h3>Champagne Glow</h3>
+              <div class="meta"><span class="price">₹699</span><span class="code">VT-003</span></div>
+              <button class="order-btn" onclick="orderWhatsApp('Champagne Glow','VT-003','₹699')">Order on WhatsApp</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&w=900&q=85" alt="Bridal nail art">
+              <span class="tag">Bridal</span>
+            </div>
+            <div class="card-body">
+              <h3>Bridal Pearl</h3>
+              <div class="meta"><span class="price">₹799</span><span class="code">VT-004</span></div>
+              <button class="order-btn" onclick="orderWhatsApp('Bridal Pearl','VT-004','₹799')">Order on WhatsApp</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="artist">
+      <div class="container about">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1100&q=85" alt="Makeup artist workspace">
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">The Artist</span>
+          <h2>Beauty styling with a personal touch.</h2>
+          <p>
+            Nivedha MakeOver is a beauty and nail styling concept created for clients who want polished, elegant looks without complicated ordering.
+            Browse, choose and message us directly with the style you love.
+          </p>
+
+          <div class="features">
+            <div class="feature"><b>Bridal Styling</b><span>Nails curated to complement bridal makeup and outfits.</span></div>
+            <div class="feature"><b>Custom Suggestions</b><span>Send your dress or reference photo on WhatsApp.</span></div>
+            <div class="feature"><b>Photo-Ready Finish</b><span>Designed for events, parties and photoshoots.</span></div>
+            <div class="feature"><b>Quick Response</b><span>Simple direct ordering without account registration.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Found your perfect set?</h2>
+            <p>Send us the product directly on WhatsApp. We’ll confirm availability, pricing and delivery details with you.</p>
+          </div>
+          <a class="btn" href="https://wa.me/919876543210?text=Hi%20Velvet%20Tips,%20I%20would%20like%20to%20place%20an%20order." target="_blank">Message on WhatsApp →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>© <span id="year"></span> Nivedha MakeOver. All rights reserved.</div>
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="https://wa.me/919876543210" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Replace this with the actual WhatsApp number in international format.
+    const whatsappNumber = "919876543210";
+
+    function orderWhatsApp(name, code, price) {
+      const message =
+        `Hi Nivedha MakeOver,%0A%0AI am interested in this nail product:%0A` +
+        `Product: ${encodeURIComponent(name)}%0A` +
+        `Code: ${encodeURIComponent(code)}%0A` +
+        `Price: ${encodeURIComponent(price)}%0A%0A` +
+        `Please share availability and ordering details.`;
+
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Featured gallery carousel
+    const track = document.querySelector(".carousel-track");
+    const slides = Array.from(document.querySelectorAll(".carousel-slide"));
+    const dots = Array.from(document.querySelectorAll(".carousel-dot"));
+    const prev = document.querySelector(".carousel-prev");
+    const next = document.querySelector(".carousel-next");
+    let currentSlide = 0;
+    let carouselTimer;
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === currentSlide));
+    }
+
+    function startCarousel() {
+      clearInterval(carouselTimer);
+      carouselTimer = setInterval(() => showSlide(currentSlide + 1), 4500);
+    }
+
+    prev.addEventListener("click", () => {
+      showSlide(currentSlide - 1);
+      startCarousel();
+    });
+
+    next.addEventListener("click", () => {
+      showSlide(currentSlide + 1);
+      startCarousel();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        showSlide(i);
+        startCarousel();
+      });
+    });
+
+    let touchStartX = 0;
+    track.addEventListener("touchstart", e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive:true });
+
+    track.addEventListener("touchend", e => {
+      const dx = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(dx) > 45) {
+        showSlide(currentSlide + (dx < 0 ? 1 : -1));
+        startCarousel();
+      }
+    }, { passive:true });
+
+    startCarousel();
+  </script>
+</body>
+</html>
